@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -19,6 +19,14 @@ const Signup = () => {
   const {phone, setPhone} = useState();
   const {password, setPassword} = useState();
 */
+
+useEffect(() => {
+    const auth = localStorage.getItem("user");
+
+    if (auth) {
+        navigate("/signin")
+    }
+}, [])
   const handleChange = (e) => {
     setInputs((prev) => ({
       ...prev,
@@ -43,7 +51,9 @@ const Signup = () => {
       })
       .catch((err) => console.log(err));
     const data = await res.data;
+    localStorage.setItem("user", JSON.stringify(res.data));
     return data;
+   
   };
 
   const handleSubmit = (e) => {

@@ -1,13 +1,23 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const navigate = useNavigate();
-  const [inputs, setInputs] = useState({
-    email: "",
-    phone: "",
-   
+  const [inputs, setInputs] = useState(
+    {
+      email: "",
+      phone: "",
+    },
+    []
+  );
+
+  useEffect(() => {
+    const auth = localStorage.getItem("user");
+
+    if (auth) {
+      navigate("/");
+    }
   });
 
   const handleChange = (e) => {
@@ -20,16 +30,21 @@ const Signin = () => {
   const sendRequest = async () => {
     const res = await axios
       .post("https://simplor.herokuapp.com/api/user/login", {
-        
         email: inputs.email,
         password: inputs.password,
-        headers:{
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        }
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
       })
       .catch((err) => console.log(err));
     const data = await res.data;
+
+    if (inputs.email) {
+      localStorage.setItem("user", JSON.stringify(res.data));
+    } else {
+      alert("Insert correct credentials");
+    }
     return data;
   };
 
@@ -44,7 +59,6 @@ const Signin = () => {
   return (
     <div className="signin">
       <form onSubmit={handleSubmit}>
-       
         <input
           type="email"
           placeholder="Email"
@@ -52,15 +66,15 @@ const Signin = () => {
           value={inputs.email}
           onChange={handleChange}
         />
-       
-       <input
+
+        <input
           type="password"
           placeholder="Password"
           name="password"
           value={inputs.password}
           onChange={handleChange}
         />
-        
+
         <button type="submit">Signin</button>
       </form>
     </div>
