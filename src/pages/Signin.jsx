@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Signin = () => {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     email: "",
@@ -19,11 +19,14 @@ const Signup = () => {
 
   const sendRequest = async () => {
     const res = await axios
-      .post("https://simplor.herokuapp.com/api/user/login", Headers(""), {
+      .post("https://simplor.herokuapp.com/api/user/login", {
         
         email: inputs.email,
         password: inputs.password,
-        
+        headers:{
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
       })
       .catch((err) => console.log(err));
     const data = await res.data;
@@ -35,11 +38,11 @@ const Signup = () => {
     console.log(inputs);
 
     //sending request
-    sendRequest().then(() => navigate("/signin"));
+    sendRequest().then(() => navigate("/"));
   };
 
   return (
-    <div className="signup">
+    <div className="signin">
       <form onSubmit={handleSubmit}>
        
         <input
@@ -50,7 +53,7 @@ const Signup = () => {
           onChange={handleChange}
         />
        
-        <input
+       <input
           type="password"
           placeholder="Password"
           name="password"
@@ -58,10 +61,10 @@ const Signup = () => {
           onChange={handleChange}
         />
         
-        <button type="submit">Signup</button>
+        <button type="submit">Signin</button>
       </form>
     </div>
   );
 };
 
-export default Signup;
+export default Signin;

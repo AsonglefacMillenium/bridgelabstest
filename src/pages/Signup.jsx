@@ -11,8 +11,14 @@ const Signup = () => {
     phone: "",
     password: "",
     avatar: "",
-  });
+  }); 
 
+ /* const {first_name, setFirst_name} = useState("");
+  const {last_name, setLast_name} = useState("");
+  const {email, setEmail} = useState();
+  const {phone, setPhone} = useState();
+  const {password, setPassword} = useState();
+*/
   const handleChange = (e) => {
     setInputs((prev) => ({
       ...prev,
@@ -29,6 +35,11 @@ const Signup = () => {
         phone: inputs.phone,
         password: inputs.password,
         avatar: inputs.avatar,
+
+        headers:{
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
       })
       .catch((err) => console.log(err));
     const data = await res.data;
