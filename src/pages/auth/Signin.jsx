@@ -17,9 +17,9 @@ const Signin = () => {
     const auth = localStorage.getItem("user");
 
     if (auth) {
-      navigate("/");
+      navigate("/dashboard");
     }
-  });
+  }, []);
 
   const handleChange = (e) => {
     setInputs((prev) => ({
@@ -35,6 +35,7 @@ const Signin = () => {
         password: inputs.password,
         headers: {
           "Content-Type": "application/json",
+          //"Content-Type": "multipart/formdata",
           Accept: "application/json",
         },
       })
@@ -42,7 +43,7 @@ const Signin = () => {
     const data = await res.data;
 
     if (inputs.email) {
-      localStorage.setItem("user", JSON.stringify(res.data));
+      //localStorage.setItem("user", JSON.stringify(res.data));
     } else {
       alert("Insert correct credentials");
     }
@@ -54,7 +55,7 @@ const Signin = () => {
     console.log(inputs);
 
     //sending request
-    sendRequest().then(() => navigate("/"));
+    sendRequest().then(() => navigate("/dashboard"));
   };
 
   return (
@@ -78,7 +79,7 @@ const Signin = () => {
         <div className="signin__button">
           <button type="submit" className="signin-btn">Signin</button>
           <Link to="/signup">
-            <button className="signup-btn">Signup</button>
+            <button className="signup-btn">Signin</button>
           </Link>
         </div>
       </form>

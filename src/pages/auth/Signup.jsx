@@ -47,7 +47,7 @@ useEffect(() => {
 
         headers:{
             "Content-Type": "application/json",
-            "Accept": "application/json"
+            Accept: "application/json"
         }
       })
       .catch((err) => console.log(err));
