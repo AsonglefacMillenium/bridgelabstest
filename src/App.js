@@ -22,6 +22,7 @@ const App = () => {
             <Route path="/user" element={<Home/>}></Route>
 
             
+            {/*Dashboard routes */}
             <Route path='/dashboard' element={<Dashboard/>}></Route>
             <Route path='/dashboard/category' element={<ViewCategories/>}></Route>
             <Route path='/dashboard/addcategory' element={<CreateCategories/>}></Route>
