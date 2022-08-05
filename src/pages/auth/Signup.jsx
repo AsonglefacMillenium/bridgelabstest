@@ -27,7 +27,7 @@ useEffect(() => {
     if (auth) {
         navigate("/signin")
     }
-}, [])
+}, [navigate])
   const handleChange = (e) => {
     setInputs((prev) => ({
       ...prev,
@@ -46,7 +46,8 @@ useEffect(() => {
         avatar: inputs.avatar,
 
         headers:{
-            "Content-Type": "application/json",
+          "Content-Type": "multipart/formdata",
+            //"Content-Type": "application/json",
             "Accept": "application/json"
         }
       })

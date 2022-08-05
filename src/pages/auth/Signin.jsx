@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./auth.css";
 
 const Signin = () => {
@@ -14,12 +14,14 @@ const Signin = () => {
   );
 
   useEffect(() => {
+
+
     const auth = localStorage.getItem("user");
 
     if (auth) {
-      navigate("/");
+        navigate("/dashboard");
     }
-  });
+  },[navigate]);
 
   const handleChange = (e) => {
     setInputs((prev) => ({
@@ -30,19 +32,22 @@ const Signin = () => {
 
   const sendRequest = async () => {
     const res = await axios
-      .post("https://simplor.herokuapp.com/api/user/login", {
+      .post("https://simplor.herokuapp.com/api/user/", {
         email: inputs.email,
         password: inputs.password,
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+          
+          //"Content-Type": "application/json",
+          "Content-Type": "multipart/formdata",
+          "Accept": "application/json",
+          
         },
       })
       .catch((err) => console.log(err));
     const data = await res.data;
 
     if (inputs.email) {
-      localStorage.setItem("user", JSON.stringify(res.data));
+      localStorage.setItem("user",JSON.stringify(res.data));
     } else {
       alert("Insert correct credentials");
     }
@@ -54,7 +59,7 @@ const Signin = () => {
     console.log(inputs);
 
     //sending request
-    sendRequest().then(() => navigate("/"));
+    sendRequest().then(() => navigate("/dashboard"));
   };
 
   return (

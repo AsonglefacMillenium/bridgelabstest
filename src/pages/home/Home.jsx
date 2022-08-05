@@ -1,6 +1,5 @@
 import React from 'react';
-import {Link, useNavigate} from 'react-router-dom'
-import Header from '../../components/header/Header';
+import { useNavigate} from 'react-router-dom'
 import Signin from '../auth/Signin';
 import './home.css'
 
@@ -31,7 +30,7 @@ const Home = () => {
      </div>
      <div className="home-right">
         <div className="home-right__img">
-            <img src={HomeImage} alt="home image" />
+            <img src={HomeImage} alt="bicycle ride" />
         </div>
      </div>
     </div>
