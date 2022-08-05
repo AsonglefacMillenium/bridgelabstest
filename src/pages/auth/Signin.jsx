@@ -32,7 +32,7 @@ const Signin = () => {
 
   const sendRequest = async () => {
     const res = await axios
-      .post("https://simplor.herokuapp.com/api/user/", {
+      .post("https://simplor.herokuapp.com/api/user/login", {
         email: inputs.email,
         password: inputs.password,
         headers: {
