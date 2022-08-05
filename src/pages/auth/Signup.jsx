@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import './auth.css'
 
 const Signup = () => {
@@ -110,7 +110,13 @@ useEffect(() => {
           value={inputs.avatar}
           onChange={handleChange}
         />
-        <button type="submit">Signup</button>
+        <div className="signin__button">
+        <button type="submit" className="signin-btn">Signup</button>
+        <Link to="/">
+            <button className="signup-btn">Signin</button>
+          </Link>
+        </div>
+       
       </form>
     </div>
   );

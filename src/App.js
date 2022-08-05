@@ -4,6 +4,7 @@ import Header from './components/header/Header'
 import Home from './pages/home/Home'
 import Signin from './pages/auth/Signin'
 import Signup from './pages/auth/Signup'
+import SignupScreen from './pages/auth/SignupScreen'
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
         <Header/>
           <Routes>
             <Route path="/" element={<Home/>}></Route>
-            <Route path="/signup" element={<Signup/>}></Route>
+            <Route path="/signup" element={<SignupScreen/>}></Route>
             <Route path="/signin" element={<Signin/>}></Route>
             <Route path="/user" element={<Home/>}></Route>
           </Routes>

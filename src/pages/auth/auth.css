@@ -12,6 +12,9 @@ input{
     border: 1px solid #979797;
     font-size: 16px;
 }
+[type=file]{
+    width: 400px;
+}
 
 .signin__button{
     display: flex;
@@ -32,4 +35,11 @@ input{
 .signup-btn{
     background-color: #ffffff;
     color: #3D50FA;
+}
+
+.signup__screen{
+    display: flex;
+    flex-direction: row;
+    height: 150vh;
+    width: 100vw;
 }
