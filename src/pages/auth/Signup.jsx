@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './auth.css'
 
 const Signup = () => {
   const navigate = useNavigate();

@@ -1,0 +1,35 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input{
+    width: 60%;
+    height: 40px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border: 1px solid #979797;
+    font-size: 16px;
+}
+
+.signin__button{
+    display: flex;
+}
+
+.signin__button button{
+    width: 85px;
+    height: 40px;
+    margin-right: 1rem;
+    font-size: 20px;
+    border: 1px solid #3D50FA;
+}
+
+.signin-btn{
+    background-color: #3D50FA;
+    color: #FFFFFF;
+}
+.signup-btn{
+    background-color: #ffffff;
+    color: #3D50FA;
+}
