@@ -7,8 +7,10 @@ import SignupScreen from './pages/auth/SignupScreen'
 import ViewCategories from './pages/dashboard/ViewCategories'
 import CreateCategories from './pages/dashboard/CreateCategories'
 import Dashboard from './pages/dashboard/Dashboard'
+import PrivateComponent from './components/PrivateComponent'
 
 const App = () => {
+  const auth = localStorage.getItem("user");
   return (
     <React.Fragment>
       <main>
@@ -16,16 +18,21 @@ const App = () => {
         <Router>
         <Header/>
           <Routes>
-            <Route path="/" element={<Home/>}></Route>
+            <Route path="/" exact element={<Home/>}></Route>
+            <Route path="/user" exact element={<Home/>}></Route>
             <Route path="/signup" element={<SignupScreen/>}></Route>
             <Route path="/signin" element={<Signin/>}></Route>
-            <Route path="/user" element={<Home/>}></Route>
+           
 
             
             {/*Dashboard routes */}
+            <Route element={<PrivateComponent/>}>
+
             <Route path='/dashboard' element={<Dashboard/>}></Route>
             <Route path='/dashboard/category' element={<ViewCategories/>}></Route>
-            <Route path='/dashboard/addcategory' element={<CreateCategories/>}></Route>
+            <Route path='/addcategory' element={<CreateCategories/>}></Route>
+            </Route>
+            
           </Routes>
         </Router>
       </main>

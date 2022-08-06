@@ -29,7 +29,13 @@ const Header = () => {
     <Link to="">Blog</Link>
     <Link to="">Pricing</Link>
     {
-        auth ? <Link to="/" onClick={handleLogout} >Logout {JSON.parse(auth).email}</Link>
+        auth ?
+        <div>
+        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/addcategory">Add category</Link>
+         <Link to="/" onClick={handleLogout} >Logout {JSON.parse(auth).email}</Link>
+        </div>
+         
         :
         <div className='header-nav__auth'>
         <Link to="/signin">Signin</Link>
