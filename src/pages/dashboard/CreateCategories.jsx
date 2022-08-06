@@ -50,6 +50,7 @@ const CreateCategories = () => {
   // }
   return (
     <div className='createcategory'>
+    <h1>Add Category</h1>
        <form onSubmit={sendAddCategoryRequest}>
         <input
           type="text"
@@ -73,8 +74,8 @@ const CreateCategories = () => {
           value={inputs.image}
           onChange={handleChange}
         />
-        <div className="signin__button">
-        <button type="submit" className="signin-btn">Add Cat</button>
+        <div className="update__button">
+        <button type="submit" className="update-btn">Create Category</button>
        
         </div>
        

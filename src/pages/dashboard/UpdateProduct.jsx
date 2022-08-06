@@ -60,6 +60,7 @@ console.log(data)
   };
   return (
     <div className="updatecategory">
+    <h1>Update This Category </h1>
       <form>
         <input
           type="text"
@@ -83,9 +84,9 @@ console.log(data)
           value={inputs.image}
           onChange={handleChange}
         />
-        <div className="signin__button">
-          <button type="submit" className="signin-btn" onClick={updateProduct}>
-            Add Cat
+        <div className="update__button">
+          <button type="submit" className="update-btn" onClick={updateProduct}>
+            Update Category
           </button>
         </div>
       </form>

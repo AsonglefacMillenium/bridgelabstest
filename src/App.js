@@ -12,7 +12,7 @@ import UpdateProduct from './pages/dashboard/UpdateProduct'
 import './App.css'
 
 const App = () => {
-  const auth = localStorage.getItem("user");
+  
   return (
     <React.Fragment>
       <main>

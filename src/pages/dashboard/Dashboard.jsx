@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./dashboard.css";
 //axios.defaults.withCredentials = true;
 const Dashboard = () => {
@@ -22,51 +22,64 @@ const Dashboard = () => {
 
   //delete product function
 
-  const deleteProduct = async (id) =>{
-    const res = await axios.delete(`https://simplor.herokuapp.com/api/category/delete/${id}`);
+  const deleteProduct = async (id) => {
+    const res = await axios.delete(
+      `https://simplor.herokuapp.com/api/category/delete/${id}`
+    );
 
     const data = res.data;
-   
+
     if (res) {
-        productList();
-    
-    } else{
-        alert("Product cannot be deleted")
+      productList();
+      alert("Product deleted Successfully")
+    } else {
+      alert("Product cannot be deleted");
     }
 
     return data;
-  }
+  };
 
   return (
     <div className="dashboard">
-      <h1>{JSON.parse(auth).first_name}</h1>
-      <img src={JSON.parse(auth).avatar} alt="hello" />
+      <div className="dashboard__user">
+        <div className="dashboard__user-welcome">
+          <h1>Welcome</h1>
+          <p>You have control on what to do</p>
+        </div>
+        <div className="dashboard__user-avatar">
+          <img src={JSON.parse(auth).avatar} alt="hello" />
+          <h1>{JSON.parse(auth).first_name}</h1>
+        </div>
+      </div>
 
-      <div className="addproduct-button ">
+      <div className="addcategory-button ">
+      
         <Link to="/addcategory">
-          <button>Add category</button>
+          <button>Create category</button>
         </Link>
-        <Link to="/">Add product</Link>
       </div>
 
       <div className="productlist">
-        {products.map((product) => (
-          <ul key={product.id}>
-            <li>
-              {" "}
-              <img src={product.image} alt="" />
-            </li>
-            <li>{product.name}</li>
-            <li>{product.description}</li>
-            <li>
-              <button onClick={() => deleteProduct(product.id)}>Delete</button>
-              <Link to={`/updateproduct/${product.id}`}>
-              <button >Edith</button>
+
+      <h3>Available products</h3>
+      <div className="productlist__section">
+      {products.map((product) => (
+          <div key={product.id} className="productlist__product-main">
+            <div className="productlist__image">
+              <img src={product.image} alt="category display" />
+            </div>
+            <p className="productlist__name">{product.name}</p>
+            <p className="productlist__description">{product.description}</p>
+            <div className="productlist__button">
+              <button onClick={() => deleteProduct(product.id)} className="productlist__delete-btn">Delete</button>
+              <Link to={`/updateproduct/${product.id}`} >
+                <button className="productlist__edith-btn">Edith</button>
               </Link>
-              
-            </li>
-          </ul>
+            </div>
+          </div>
         ))}
+      </div>
+       
       </div>
     </div>
   );
