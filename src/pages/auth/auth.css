@@ -43,3 +43,12 @@ input{
     height: 150vh;
     width: 100vw;
 }
+
+@media (max-width:830px) {
+    input{
+        width: 80%;
+    }
+    [type=file]{
+        width:81%
+    }
+}

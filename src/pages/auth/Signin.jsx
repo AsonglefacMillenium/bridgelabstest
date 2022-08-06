@@ -79,11 +79,12 @@ const Signin = () => {
           name="password"
           value={inputs.password}
           onChange={handleChange}
+         
         />
         <div className="signin__button">
           <button type="submit" className="signin-btn">Signin</button>
           <Link to="/signup">
-            <button className="signup-btn">Signin</button>
+            <button className="signup-btn">Signup</button>
           </Link>
         </div>
       </form>

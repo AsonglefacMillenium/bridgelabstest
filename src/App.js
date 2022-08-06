@@ -9,6 +9,7 @@ import CreateCategories from './pages/dashboard/CreateCategories'
 import Dashboard from './pages/dashboard/Dashboard'
 import PrivateComponent from './components/PrivateComponent'
 import UpdateProduct from './pages/dashboard/UpdateProduct'
+import './App.css'
 
 const App = () => {
   const auth = localStorage.getItem("user");
