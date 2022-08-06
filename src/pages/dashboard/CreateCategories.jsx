@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import './dashboard.css'
+import { useNavigate } from 'react-router-dom';
 
 const CreateCategories = () => {
   const [inputs, setInputs] = useState({
@@ -9,6 +10,9 @@ const CreateCategories = () => {
     description: "",
     
   }); 
+
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setInputs((prev) => ({
       ...prev,
@@ -32,8 +36,13 @@ const CreateCategories = () => {
 
     const data = await res.data;
     console.log(data)
-    return data
+    
+    if (res) {
+      navigate("/dashboard")
+    }
 
+    return data
+    
   }
 
   // const addCategory = () =>{

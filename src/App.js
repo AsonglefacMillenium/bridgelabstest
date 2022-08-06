@@ -8,6 +8,7 @@ import ViewCategories from './pages/dashboard/ViewCategories'
 import CreateCategories from './pages/dashboard/CreateCategories'
 import Dashboard from './pages/dashboard/Dashboard'
 import PrivateComponent from './components/PrivateComponent'
+import UpdateProduct from './pages/dashboard/UpdateProduct'
 
 const App = () => {
   const auth = localStorage.getItem("user");
@@ -31,6 +32,7 @@ const App = () => {
             <Route path='/dashboard' element={<Dashboard/>}></Route>
             <Route path='/dashboard/category' element={<ViewCategories/>}></Route>
             <Route path='/addcategory' element={<CreateCategories/>}></Route>
+            <Route path='/updateproduct/:id' element={<UpdateProduct/>}></Route>
             </Route>
             
           </Routes>
