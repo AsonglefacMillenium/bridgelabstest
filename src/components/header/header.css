@@ -1,6 +1,6 @@
 .header{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     position:absolute;
     width: 100%;
     padding: 3rem 0rem;
@@ -10,12 +10,13 @@
 .header-nav{
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 45%;
     align-self: center;
+   
 }
 
 .header-nav a{
-    margin-right: 2rem;
+    margin-right:2rem ;
     color: #979797;
     font-size: 20px;
     text-decoration: none;

@@ -38,9 +38,8 @@ const Header = () => {
         {auth ? (
           <div>
             <Link to="/dashboard">Dashboard</Link>
-            <Link to="/addcategory">Add category</Link>
             <Link to="/" onClick={handleLogout}>
-              Logout {JSON.parse(auth).email}
+              Logout
             </Link>
           </div>
         ) : (
@@ -60,9 +59,8 @@ const Header = () => {
             {auth ? (
               <div>
                 <Link to="/dashboard"  className="drawer-link">Dashboard</Link>
-                <Link to="/addcategory"  className="drawer-link">Add category</Link>
                 <Link to="/" onClick={handleLogout}  className="drawer-link">
-                  Logout {JSON.parse(auth).email}
+                  Logout 
                 </Link>
               </div>
             ) : (

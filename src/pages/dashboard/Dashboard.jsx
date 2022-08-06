@@ -47,8 +47,8 @@ const Dashboard = () => {
           <p>You have control on what to do</p>
         </div>
         <div className="dashboard__user-avatar">
-          <img src={JSON.parse(auth).avatar} alt="hello" />
-          <h1>{JSON.parse(auth).first_name}</h1>
+          <img src={JSON.parse(auth).avatar} alt="user avatar" />
+          <p>{JSON.parse(auth).first_name}</p>
         </div>
       </div>
 
@@ -61,7 +61,7 @@ const Dashboard = () => {
 
       <div className="productlist">
 
-      <h3>Available products</h3>
+      <h1>Available Categories</h1>
       <div className="productlist__section">
       {products.map((product) => (
           <div key={product.id} className="productlist__product-main">
