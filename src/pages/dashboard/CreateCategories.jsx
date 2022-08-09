@@ -29,8 +29,9 @@ const CreateCategories = () => {
       description: inputs.description,
       image: inputs.image,
       headers: {
-        "Content-Type": "multipart/formdata",
-        "Accept": "/"
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        authorization:`bearer ${JSON.parse(localStorage.getItem("token"))}`
       }
     }).catch(err => console.log(err));
 

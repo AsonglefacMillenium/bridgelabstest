@@ -20,7 +20,7 @@ const Dashboard = () => {
     const res = await axios.get(
       "https://simplor.herokuapp.com/api/category/categories", {
         headers: {
-            authorization: JSON.parse(localStorage.getItem("token"))
+            authorization:`bearer ${JSON.parse(localStorage.getItem("token"))}`
         }
       }
     );
@@ -28,11 +28,17 @@ const Dashboard = () => {
     setProducts(data);
   };
 
+  
+
   //delete product function
 
   const deleteProduct = async (id) => {
     const res = await axios.delete(
-      `https://simplor.herokuapp.com/api/category/delete/${id}`
+      `https://simplor.herokuapp.com/api/category/delete/${id}`,  {
+        headers: {
+            authorization:`bearer ${JSON.parse(localStorage.getItem("token"))}`
+        }
+      }
     );
 
     const data = res.data;
