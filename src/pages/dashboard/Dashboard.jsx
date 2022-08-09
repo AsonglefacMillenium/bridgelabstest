@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./dashboard.css";
+
+//asset import
+import Avatar from "../../images/avatar.jpg"
 //axios.defaults.withCredentials = true;
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
@@ -52,7 +55,7 @@ const Dashboard = () => {
           <p>You have control on what to do</p>
         </div>
         <div className="dashboard__user-avatar">
-          <img src={JSON.parse(auth).avatar} alt="user avatar" />
+          <img src={Avatar} alt="user avatar" />
           <p>{JSON.parse(auth).first_name}</p>
         </div>
       </div>

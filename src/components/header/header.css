@@ -1,6 +1,6 @@
 .header{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     position:absolute;
     width: 100%;
     padding: 3rem 0rem;
@@ -32,7 +32,7 @@
 
 .header-logo{
     color: #3D50FA;
-    margin-left: 2rem;
+    margin-left: 3rem;
 }
 
 .header-nav__auth{
@@ -50,6 +50,7 @@
 
     cursor: pointer;
     margin-top: 2rem;
+    margin-right: 3rem;
   }
   
   .main-navigation__menu-btn span {
