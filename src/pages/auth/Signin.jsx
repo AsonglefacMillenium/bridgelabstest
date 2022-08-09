@@ -47,7 +47,8 @@ const Signin = () => {
     const data = await res.data;
 
     if (inputs.email) {
-      localStorage.setItem("user",JSON.stringify(res.data));
+      localStorage.setItem("user", JSON.stringify(res.data));
+      localStorage.setItem("user", JSON.stringify(res.data));
     } else {
       alert("Insert correct credentials");
     }

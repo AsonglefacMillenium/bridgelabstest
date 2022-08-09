@@ -12,9 +12,14 @@ const Dashboard = () => {
     productList();
   });
 
+  //Fetching the list of products from the server
   const productList = async () => {
     const res = await axios.get(
-      "https://simplor.herokuapp.com/api/category/categories"
+      "https://simplor.herokuapp.com/api/category/categories", {
+        headers: {
+            authorization: JSON.parse(localStorage.getItem("token"))
+        }
+      }
     );
     const data = res.data;
     setProducts(data);

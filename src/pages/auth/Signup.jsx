@@ -54,6 +54,7 @@ useEffect(() => {
       .catch((err) => console.log(err));
     const data = await res.data;
     localStorage.setItem("user", JSON.stringify(res.data));
+    localStorage.setItem("token", JSON.stringify(res.data));
     return data;
    
   };
