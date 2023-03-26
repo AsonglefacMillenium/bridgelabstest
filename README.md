@@ -7,7 +7,7 @@ then npm start.
 
 Node.js and npm are needed to run this project.
 
-viw live project [output](https://bridelabstest.vercel.app/) 
+view live project [output](https://bridelabstest.vercel.app/) 
 
 
 
